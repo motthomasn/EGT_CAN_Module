@@ -15,12 +15,13 @@
 /*
  * EGT_CAN_MODULE_ASSY_CODE
  * Version 1.0      22-08-2019      Original generic code for Teensy 3.2 controller. Based on Microsquirt_EGT_CAN_Module_Timer.ino code
- * Version 1.1      04-06-2020      Code adjusted to suit Platform IO IDE & CBR250RRi Life Racing F88R ECU installation
- *                                  5off MAX31855's initialised but only 4off read in UpdateTC function
+ * Version 1.1      04-06-2020      Code adjusted to suit Platform IO IDE & Life Racing F88R ECU installation
+ * Version 1.2      09-05-2023      CAN ID adjusted to match CAN Config v3.0
  * 
- * Messages transmitted are MSB First or Big Endian byte order. 
- * 500kbs baud rate.
- * Temperatures transmitted in degC * 10. Signed 16-bit integer data format
+ * This code is designed for use with the 015-0011 K-TYPES MODULE ASSY utilising 015-0012 R00 PCB layout
+ * CAN Config:  200507_LOGGER_CAN_CONFIG_v2.0.xlsx
+ * CAN DBC:     190820_Input_Config_v2.1.txt
+ * Messages recieved are MSB First or Big Endian byte order
  * 
  * See documentation for details & overview
  */
@@ -39,7 +40,7 @@
 
 // User Config variables
 // Define variables most likely to be changed by user
-#define MsgID 0x640       // CAN message ID
+#define MsgID 0x700       // CAN message ID
 #define can_speed 500000 // CAN-Bus baud rate in bps
 #define update_freq 2    // Update rate in Hz
 
